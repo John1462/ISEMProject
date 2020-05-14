@@ -10,7 +10,7 @@ from paypalrestsdk import Payment
 paypalrestsdk.configure({
     'mode': 'sandbox',  # sandbox or live
     'client_id': 'ASKyCJd7oPrsDl6QHKJ2Yp6yqCoQlrZcJzdou-CLdhvECjCnvZw2c1ZXpdZj_jRpOTfp2X0TqREENhOK',
-    'client_secret': 'ECfRxRWVA6LVTuk1ReprWunNjE5CXrIibvRpj-cm4ZFPWA9bVxX4meQB_qF9NN_oRvAbBAQdqerOCUEJ'
+    'client_secret': 'EHcSWZxSWdDjyU9VBGIwABkUY8tdFQrmkQOznWvUJuFJtTpI2Pms_Wuf9_q3KEdHu6ZdL_m6Brw-jIFH'
 })
 
 

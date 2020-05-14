@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DatePicker from 'react-native-datepicker';
 import {
     Alert,
     AsyncStorage,
@@ -36,7 +37,8 @@ export default class OrderScreen extends Component {
             total_amount: 0,
             isModalVisible: false,
             approval_url: undefined,
-            payment_token: undefined
+            payment_token: undefined,
+            delivery_date:new Date(),
         };
     }
 
@@ -131,7 +133,7 @@ export default class OrderScreen extends Component {
     // submit button action
     onPressSubmit = () => {
         // get all 3 variable from state
-        const { selected_product, order_quantity, total_amount } = this.state;
+        const { selected_product, order_quantity, total_amount, delivery_date } = this.state;
         //console.debug("Submited orders:");
         // console.debug(
         //     selected_product.id + ":order=" + order_quantity + ":total_amount=" + total_amount
@@ -168,7 +170,8 @@ export default class OrderScreen extends Component {
         place_order({
             product_id: selected_product.id,
             quantity: order_quantity,
-            total_amount: total_amount
+            total_amount: total_amount,
+            delivery_date: delivery_date,
         }).then(response => {
             // using then to handle next operation after received response
             if (response.approval_url !== undefined) {
@@ -237,6 +240,33 @@ export default class OrderScreen extends Component {
                         onChangeText={this.inputQty}
                         clearTextOnFocus={true} //only work on IOS
                     />
+
+                     <DatePicker
+                        style={{width: 200}}
+                        date={this.state.delivery_date}
+                        mode="date"
+                        placeholder="select date"
+                        format="YYYY-MM-DD"
+                        minDate={this.state.delivery_date}
+                        maxDate="2021-09-01"
+                        confirmBtnText="Confirm"
+                        cancelBtnText="Cancel"
+                        customStyles={{
+                          dateIcon: {
+                            position: 'absolute',
+                            left: 0,
+                            top: 4,
+                            marginLeft: 0
+                          },
+                          dateInput: {
+                            marginLeft: 36
+                          }
+                          // ... You can check the source to find the other keys.
+                        }}
+                        onDateChange={(date) => {this.setState({delivery_date: date})}}
+                      />
+
+
                     <Text>Total Amount: {this.state.total_amount}</Text>
 
                     <Button
