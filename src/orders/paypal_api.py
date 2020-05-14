@@ -9,13 +9,13 @@ from paypalrestsdk import Payment
 
 paypalrestsdk.configure({
     'mode': 'sandbox',  # sandbox or live
-    'client_id': 'AWYtcTeIOmFDaYEOdj1aMfgR5TkskTTJC2g2rZA6fHWWWsC5H4YGzNFoyBYzrBk9rFL6BJE9dDrd2_3P',
-    'client_secret': 'EJSZuQI5K2nF11PNPJUIBOulokMsazvd7l6drl15pRKwktW2hB19eGcPKWWT5Jx0Yn80WRi5OZzsCbE0'
+    'client_id': 'ASKyCJd7oPrsDl6QHKJ2Yp6yqCoQlrZcJzdou-CLdhvECjCnvZw2c1ZXpdZj_jRpOTfp2X0TqREENhOK',
+    'client_secret': 'ECfRxRWVA6LVTuk1ReprWunNjE5CXrIibvRpj-cm4ZFPWA9bVxX4meQB_qF9NN_oRvAbBAQdqerOCUEJ'
 })
 
 
 def create_payment(total_amount):
-    server_address = "127.0.0.1:8000"
+    server_address = "192.168.0.100:8000"
     if sys.argv[-1] != "runserver":
         server_address = sys.argv[-1]
 
