@@ -34,7 +34,7 @@ export default class RegisterScreen extends Component {
     // Authentication Part
     let keys = ['user_id', 'user_email', 'user_token'];
     await AsyncStorage.clear();
-    this.props.navigation.navigate("AuthLoading");
+    this.props.navigation.navigate("Login");
   }
 
 }

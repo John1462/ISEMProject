@@ -13,6 +13,7 @@ import RegisterScreen from '../screens/RegisterScreen';
 
 import ProductsScreen from '../screens/ProductsScreen';
 import OrderScreen from '../screens/OrderScreen';
+import RecordScreen from '../screens/RecordScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
 const LoginStack = createStackNavigator(
@@ -26,7 +27,8 @@ const HomeStack = createBottomTabNavigator(
   {
   Products: {screen: ProductsScreen},
   Order: {screen: OrderScreen},
-  Profile: {screen: ProfileScreen},
+  Record: {screen: RecordScreen},
+  Profile: {screen: ProfileScreen}
   },
   {
     headerMode: 'none',
