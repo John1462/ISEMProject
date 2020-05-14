@@ -50,7 +50,7 @@ export const register = (username, password) => {
 
 export const place_order = async (order) => {
   user_id = await get_user_info("user_id");
-  const { product_id, quantity, total_amount, delivery_date } = order;
+  const { product_id, quantity, total_amount, delivery_date, delivery_time } = order;
   token = "Token " + (await get_user_info("user_token"));
   data = {
     customer: user_id,
@@ -58,6 +58,7 @@ export const place_order = async (order) => {
     quantity: quantity,
     total_amount: total_amount,
     delivery_date: delivery_date,
+    delivery_time: delivery_time,
   };
   var url = BASE_API_URL + "payment/";
   console.log("POST : " + url);
