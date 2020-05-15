@@ -6,6 +6,7 @@ import {
 } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
+import Icon from '../components/Icon'
 
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 import LoginScreen from '../screens/LoginScreen';
@@ -25,10 +26,26 @@ const LoginStack = createStackNavigator(
 
 const HomeStack = createBottomTabNavigator(
   {
-  Products: {screen: ProductsScreen},
-  Order: {screen: OrderScreen},
-  Record: {screen: RecordScreen},
-  Profile: {screen: ProfileScreen}
+  Products: {
+    screen: ProductsScreen,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => <Icon name="product" color={tintColor} />
+    }
+  },
+  Order: {screen: OrderScreen,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => <Icon name="order" color={tintColor} />
+    }
+  },
+  Record: {screen: RecordScreen,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => <Icon name="record" color={tintColor} />
+    }
+  },
+  Profile: {screen: ProfileScreen,
+   navigationOptions: {
+      tabBarIcon: ({ tintColor }) => <Icon name="profile" color={tintColor} />}
+    }
   },
   {
     headerMode: 'none',

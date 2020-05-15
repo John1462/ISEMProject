@@ -49,7 +49,7 @@ export default class OrderScreen extends Component {
     }
 
     static navigationOptions = {
-        title: "Order"
+        title: "Record"
     };
 
 
