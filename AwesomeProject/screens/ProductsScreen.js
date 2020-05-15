@@ -107,8 +107,9 @@ export default class ProductsScreen extends Component {
     return(
       <View style={{ flex: 1 }}>
         <Header
-          placement="left"
+          leftComponent={{ icon: 'menu', color: '#fff' }}
           centerComponent={{ text: 'Welcome, ' + username, style: { color: '#fff' } }}
+          rightComponent={{ icon: 'home', color: '#fff' }}        
         />
         <ScrollView
           refreshControl={
@@ -122,17 +123,31 @@ export default class ProductsScreen extends Component {
             keyExtractor={item => item.name}
             renderItem={({item}) => (
               <ListItem
-                title={item.name}
+                title={                
+                  <Text
+                    style={{
+                    color: 'purple',
+                    fontWeight: 'bold',
+                    fontSize: 20,
+                    }}
+                  >
+                  {item.name}
+
+                  </Text>
+                }
                 subtitle={
                   <View>
-                    <Text>{item.description}</Text>
-                    <Text>Qty: {item.quantity}</Text>
-                    <Text>Price: ${item.price}</Text>
+                    <Text style={ {height: 20, fontSize: 16, fontWeight: "bold", marginTop:4}}>
+                      {item.description}
+                    </Text>
+                    <Text style={ {height: 20, fontSize: 14, marginTop:4}}>
+                      Price: ${item.price}</Text>
                     <Text>Last Update: {item.updated}</Text>
                   </View>
                 }
                 leftAvatar={{ source : {uri:item.picture} }}
-                rightIcon={{ name:"add" }}
+                rightIcon={{ name:"shopping-cart" }}
+
                 onPress={() => this.pressedAdd(item.id)}
               />
             )}

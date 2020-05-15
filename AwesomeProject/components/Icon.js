@@ -2,8 +2,8 @@ import React from "react";
 import { Text } from "react-native";
 
 const iconMap = {
-  product: "♡",
-  order: "♢",
+  product: "♢",
+  order: "♡",
   profile: "♧",
   record: "♤"
 };
