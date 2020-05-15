@@ -213,7 +213,7 @@ export default class OrderScreen extends Component {
         let content_view;
         if (this.state.isLoading) {
             contentView = (
-                <View style={{ flex: 1, padding: 20 }}>
+            <View style={{ flex: 1, padding: 20 }}>
                 <ActivityIndicator />
             </View>
             );
@@ -234,22 +234,42 @@ export default class OrderScreen extends Component {
             contentView = (
 
                 <Card title={selected_product.name}>
+                      <View style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}>
                     <Avatar
-                        large
+                        size={120}
+                        borderColor="black"
+                        borderWidth={3}
                         source={{ uri: selected_product.picture }}
                         activeOpacity={0.7}
                     />
-                    <Text>Description: {selected_product.description}</Text>
-                    <Text>Quantity: {selected_product.quantity}</Text>
-                    <Text>Discount: {selected_product.discount}</Text>
-                    <Text>price: {selected_product.price}</Text>
+                    </View>
 
-                    <Input
+                    <Text style={ {height: 17, fontSize: 16, marginTop:4}}>
+                        Description: {selected_product.description}
+                    </Text>
+
+                    <Text style={ {height: 17, fontSize: 16, marginTop:4}}>
+                        Quantity: {selected_product.quantity}
+                    </Text>
+
+                    <Text style={ {height: 17, fontSize: 16, marginTop:4}}>
+                        Discount: {selected_product.discount}
+                    </Text>
+
+                    <Text style={ {height: 17, fontSize: 16, marginTop:4}}>
+                        Price: {selected_product.price}
+                    </Text>
+
+                    <Input 
                         label="Input your need:"
                         containerStyle={{
                             borderWidth: 2, // size/width of the border
                             borderColor: "lightgrey", // color of the border
-                            marginVertical: 10
+                            marginVertical: 10,
+                            marginTop:10
                         }}
                         keyboardType="numeric"
                         value={`${this.state.order_quantity}`}
@@ -257,10 +277,12 @@ export default class OrderScreen extends Component {
                         clearTextOnFocus={true} //only work on IOS
                     />
 
-                     <Text> Please select a delivery date! </Text>
+                     <Text style={ {height: 20, fontSize: 17, fontWeight: "bold", marginTop:4}}>
+                        Please select a delivery date! 
+                     </Text>
 
                      <DatePicker
-                        style={{width: 200}}
+                        style={{width: 200, marginTop: 8}}
                         
                         date={this.state.delivery_date}
                         mode="date"
@@ -284,10 +306,12 @@ export default class OrderScreen extends Component {
                         onDateChange={(date) => {this.setState({delivery_date: date})}}
                       />
 
-                     <Text> Please select a delivery time! </Text>
+                     <Text style={ {height: 20, fontSize: 17, fontWeight: "bold", marginTop:4}}> 
+                        Please select a delivery time! 
+                     </Text>
 
                      <DatePicker
-                        style={{width: 200}}
+                        style={{width: 200, marginTop: 4}}
                         date={this.state.delivery_time}
                         mode="time"
                         placeholder="select date"
@@ -309,20 +333,25 @@ export default class OrderScreen extends Component {
                       />
 
 
-                    <Text> Delivery Address </Text>
+                    <Text style={ {height: 20, fontSize: 17, fontWeight: "bold", marginTop:4}}> 
+                        Delivery Address 
+                    </Text>
+
                     <TextInput
                           placeholder="Please type your address!"
-                          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                          style={{ height: 40, borderColor: 'gray', borderWidth: 1 ,marginTop:10}}
                           onChangeText={text => {this.setState({customer_address: text})}}
                     />
 
-                    <Text>Total Amount: {this.state.total_amount}</Text>
+                    <Text style={ {height: 20, fontSize: 17, fontWeight: "bold", marginTop:4}}> 
+                        Total Amount: {this.state.total_amount}
+                    </Text>
 
                     <Button
                         title="ORDER"
                         icon={{ name: "payment" }}
                         backgroundColor="#03A9F4"
-                        buttonStyle={{ borderRadius: 0, marginTop: 100 }}
+                        buttonStyle={{ borderRadius: 0, marginTop: 20 }}
                         onPress={this.onPressSubmit}
                     />
                 </Card>
