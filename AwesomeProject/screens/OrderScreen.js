@@ -12,6 +12,7 @@ import {
     ScrollView,
     StyleSheet,
     TouchableOpacity,
+    TextInput,
     View,
     //WebView,
 } from "react-native";
@@ -43,6 +44,7 @@ export default class OrderScreen extends Component {
             payment_token: undefined,
             delivery_date:new Date(),
             delivery_time:new Date(),
+            customer_address: undefined,
         };
     }
 
@@ -139,7 +141,13 @@ export default class OrderScreen extends Component {
     // submit button action
     onPressSubmit = () => {
         // get all 3 variable from state
-        const { selected_product, order_quantity, total_amount, delivery_date, delivery_time } = this.state;
+        const { selected_product, 
+                order_quantity, 
+                total_amount, 
+                delivery_date, 
+                delivery_time, 
+                customer_address
+        } = this.state;
         //console.debug("Submited orders:");
         // console.debug(
         //     selected_product.id + ":order=" + order_quantity + ":total_amount=" + total_amount
@@ -179,6 +187,7 @@ export default class OrderScreen extends Component {
             total_amount: total_amount,
             delivery_date: delivery_date,
             delivery_time: delivery_time,
+            customer_address: customer_address, 
         }).then(response => {
             // using then to handle next operation after received response
             if (response.approval_url !== undefined) {
@@ -248,8 +257,11 @@ export default class OrderScreen extends Component {
                         clearTextOnFocus={true} //only work on IOS
                     />
 
+                     <Text> Please select a delivery date! </Text>
+
                      <DatePicker
                         style={{width: 200}}
+                        
                         date={this.state.delivery_date}
                         mode="date"
                         placeholder="select date"
@@ -272,7 +284,8 @@ export default class OrderScreen extends Component {
                         onDateChange={(date) => {this.setState({delivery_date: date})}}
                       />
 
-                   
+                     <Text> Please select a delivery time! </Text>
+
                      <DatePicker
                         style={{width: 200}}
                         date={this.state.delivery_time}
@@ -282,15 +295,26 @@ export default class OrderScreen extends Component {
                         confirmBtnText="Confirm"
                         cancelBtnText="Cancel"
                         customStyles={{
+                          dateIcon: {
                             position: 'absolute',
                             left: 0,
                             top: 6,
+                            marginLeft: 0
+                          },
                           dateInput: {
                             marginLeft: 36
                           }
                         }}
                         onDateChange={(time) => {this.setState({delivery_time: time})}}
                       />
+
+
+                    <Text> Delivery Address </Text>
+                    <TextInput
+                          placeholder="Please type your address!"
+                          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                          onChangeText={text => {this.setState({customer_address: text})}}
+                    />
 
                     <Text>Total Amount: {this.state.total_amount}</Text>
 

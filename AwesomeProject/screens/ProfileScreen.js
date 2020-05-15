@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {
   AsyncStorage,
-  View
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  StyleSheet,
 } from 'react-native';
 import {
   Button
@@ -20,7 +24,15 @@ export default class RegisterScreen extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent:'center', alignItems: 'center' }}>
+      <View style={{ flex: 1, justifyContent:'center', alignItems: 'center', marginTop:20 }}>
+
+      <Text style={ {fontSize:28}}>ISEM Group 4</Text>
+
+          <Image
+            source={require("../assets/images/fruit-box.jpg")}
+            style={styles.image}
+          />
+
         <Button
           // submit button
           title='Logout'
@@ -38,3 +50,21 @@ export default class RegisterScreen extends Component {
   }
 
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    marginVertical: 20
+  },
+  imageBackground: {
+    width: "100%",
+    height: "100%"
+  },
+  image: {
+    resizeMode: "contain",
+    width: "50%",
+    height: "50%",
+    marginBottom: 10
+  },
+});
