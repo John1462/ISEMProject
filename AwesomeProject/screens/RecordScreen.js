@@ -223,9 +223,11 @@ export default class OrderScreen extends Component {
         if (selected_product === undefined) {
             // If selected product is empty, show no product message
             contentView = (
-                <View>
-                    <Text> No product selected! </Text>
-                    <Text> Please select a product from list first! </Text>
+                <View style={{ flex: 1, justifyContent:'center', alignItems: 'center'}}>
+                  <Image
+                    source={require("../assets/images/norecord.png")}
+                    style={styles.image}
+                  />
                 </View>
             );
         } else {
@@ -353,6 +355,20 @@ export default class OrderScreen extends Component {
         );
     }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    marginVertical: 20
+  },
+  image: {
+    resizeMode: "contain",
+    width: "50%",
+    height: "50%",
+    marginBottom: 10
+  },
+});
+
 
 
 
