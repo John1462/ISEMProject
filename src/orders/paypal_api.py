@@ -9,8 +9,8 @@ from paypalrestsdk import Payment
 
 paypalrestsdk.configure({
     'mode': 'sandbox',  # sandbox or live
-    'client_id': 'ASKyCJd7oPrsDl6QHKJ2Yp6yqCoQlrZcJzdou-CLdhvECjCnvZw2c1ZXpdZj_jRpOTfp2X0TqREENhOK',
-    'client_secret': 'EHcSWZxSWdDjyU9VBGIwABkUY8tdFQrmkQOznWvUJuFJtTpI2Pms_Wuf9_q3KEdHu6ZdL_m6Brw-jIFH'
+    'client_id': 'AXCgHcB9lIZ--_4YYOs_2HWl05t1bSHQ7Iz-yoP7ihRMrTvNcu_Y-nBiw8fjCWQn2tKazVQ9Cr6uzULI',
+    'client_secret': 'EKhukmZ4PYrgrqgemcn6wclKGiz_lybpY2qdsvZSlbJTb0xeygNFGVdDvJIs1ZD_8E9wQRj8ZqEZn5VE'
 })
 
 
