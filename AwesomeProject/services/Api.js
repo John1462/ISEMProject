@@ -109,6 +109,27 @@ export const get_products_list = async () => {
     });
 };
 
+export const get_orders_list = async () => {
+  var url = BASE_API_URL + "orders/";
+  console.log("GET : " + url);
+  token = "Token " + (await get_user_info("user_token"));
+  return fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      }
+    })
+    .then(response => response.json())
+    .then(responseJson => {
+      console.log("successful.")
+      return responseJson;
+    })
+    .catch(error => {
+      console.error("GET order list failure:\n" + error);
+    });
+};
+
 export const get_product_detail = async (product_id) => {
   var url = BASE_API_URL + "products/" + product_id+ "/";
   console.log("GET : " + url);
